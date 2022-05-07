@@ -18,6 +18,8 @@ import net.runelite.client.plugins.PluginDescriptor;
 )
 public class PvMTrackerPlugin extends Plugin
 {
+	// static fields
+	public static final String PLUGIN_VERSION = "0";
 	@Inject
 	private Client client;
 
@@ -41,7 +43,7 @@ public class PvMTrackerPlugin extends Plugin
 	{
 		if (gameStateChanged.getGameState() == GameState.LOGGED_IN)
 		{
-			client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", "Example says " + config.greeting(), null);
+			//client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", "Example says " + config.greeting(), null);
 		}
 	}
 
