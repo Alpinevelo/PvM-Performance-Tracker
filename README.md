@@ -1,2 +1,2 @@
-# Example
-An example greeter plugin
+# PvM Performance Tracker
+This plugin tracks your performance in PvM situations.
