@@ -19,12 +19,12 @@ public interface PvMTrackerConfig extends Config
 	String overlay = "overlay";
 
 	@ConfigSection(
-			name = "Levels",
-			description = "Contains level settings.",
+			name = "Combat Stats",
+			description = "Contains combat stat settings.",
 			position = 50,
-			closedByDefault = false
+			closedByDefault = true
 	)
-	String levels = "levels";
+	String cbtStats = "cbtStats";
 
 	// ==== General ====
 	@ConfigItem(
@@ -54,7 +54,8 @@ public interface PvMTrackerConfig extends Config
 			keyName = "showOverlay",
 			name = "Show Overlay",
 			description = "Display your fight statistics during the fight on screen.",
-			position = 0
+			position = 0,
+			section = overlay
 	)
 	default boolean showOverlay()
 	{
@@ -65,7 +66,8 @@ public interface PvMTrackerConfig extends Config
 			keyName = "showOverlayNames",
 			name = "Show Names in Overlay",
 			description = "The overlay will display names.",
-			position = 10
+			position = 10,
+			section = overlay
 	)
 	default boolean showOverlayNames()
 	{
@@ -76,7 +78,8 @@ public interface PvMTrackerConfig extends Config
 			keyName = "showOverlayDeservedDamage",
 			name = "Show Deserved Damage in Overlay",
 			description = "The overlay will display deserved damage.",
-			position = 20
+			position = 20,
+			section = overlay
 	)
 	default boolean showOverlayDeservedDamage()
 	{
@@ -87,7 +90,8 @@ public interface PvMTrackerConfig extends Config
 			keyName = "showOverlayDamageDealt",
 			name = "Show Damage Dealt in Overlay",
 			description = "The overlay will display damage dealt.",
-			position = 30
+			position = 30,
+			section = overlay
 	)
 	default boolean showOverlayDamageDealt()
 	{
@@ -95,16 +99,46 @@ public interface PvMTrackerConfig extends Config
 	}
 
 	@ConfigItem(
+			keyName = "trackCurrentZeros",
+			name = "Track Current Zero Streak",
+			description = "Starting from the first zero since last successfully hitting, " +
+					"<br>track the current streak of zeros hit.",
+			position = 40,
+			section = overlay
+	)
+	default boolean trackCurrentZeros() { return true; }
+	@ConfigItem(
 			keyName = "showLongestZeroStreak",
 			name = "Show Longest Zero Streak",
 			description = "The overlay will display your longest streak of 0 hits.",
-			position = 40
+			position = 50,
+			section = overlay
 	)
 	default boolean showLongestZeroStreak()
 	{
 		return true;
 	}
 
+	@ConfigItem(
+			keyName = "trackCurrentHits",
+			name = "Track Current Hit Streak",
+			description = "Starting from the first hit since the last zero, " +
+					"<br>track the current streak of successful hits.",
+			position = 60,
+			section = overlay
+	)
+	default boolean trackCurrentHits()
+	{
+		return true;
+	}
+	@ConfigItem(
+			keyName = "showLongestHitStreak",
+			name = "Show Longest Hit Streak",
+			description = "The overlay will display your longest streak of successful hits.",
+			position = 70,
+			section = overlay
+	)
+	default boolean showLongestHitStreak() {return true;}
 	// ==== Levels Config ====
 
 	@Range(
@@ -116,7 +150,7 @@ public interface PvMTrackerConfig extends Config
 			name = "Attack Level",
 			description = "Attack level used for deserved damage calculations.",
 			position = 60,
-			section = levels
+			section = cbtStats
 	)
 	default int attackLevel()
 	{
@@ -132,7 +166,7 @@ public interface PvMTrackerConfig extends Config
 			name = "Strength Level",
 			description = "Strength level used for deserved damage calculations.",
 			position = 70,
-			section = levels
+			section = cbtStats
 	)
 	default int strengthLevel()
 	{
@@ -148,7 +182,7 @@ public interface PvMTrackerConfig extends Config
 			name = "Defence Level",
 			description = "Defence level used for deserved damage calculations.",
 			position = 80,
-			section = levels
+			section = cbtStats
 	)
 	default int defenceLevel()
 	{
@@ -164,7 +198,7 @@ public interface PvMTrackerConfig extends Config
 			name = "Ranged Level",
 			description = "Ranged level used for deserved damage calculations.",
 			position = 90,
-			section = levels
+			section = cbtStats
 	)
 	default int rangedLevel()
 	{
@@ -180,7 +214,7 @@ public interface PvMTrackerConfig extends Config
 			name = "Magic Level",
 			description = "Magic level used for deserved damage calculations.",
 			position = 100,
-			section = levels
+			section = cbtStats
 	)
 	default int magicLevel()
 	{
