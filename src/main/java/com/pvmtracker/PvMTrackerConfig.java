@@ -11,12 +11,12 @@ public interface PvMTrackerConfig extends Config
 	// ==== Config Sections ====
 
 	@ConfigSection(
-			name = "Overlay",
-			description = "Contains overlay settings.",
+			name = "History Panel",
+			description = "Contains panel settings.",
 			position = 0,
 			closedByDefault = true
 	)
-	String overlay = "overlay";
+	String panel = "panel";
 
 	@ConfigSection(
 			name = "Combat Stats",
@@ -48,52 +48,28 @@ public interface PvMTrackerConfig extends Config
 		return true;
 	}
 
-	// ==== Overlay Config ====
+	// ==== Panel Config ====
 
 	@ConfigItem(
-			keyName = "showOverlay",
-			name = "Enable Overlay",
-			description = "Display your fight statistics during the fight on screen.",
-			position = 0,
-			section = overlay
-	)
-	default boolean showOverlay()
-	{
-		return true;
-	}
-
-	@ConfigItem(
-			keyName = "showOverlayNames",
-			name = "Display Names",
-			description = "The overlay will display names.",
-			position = 10,
-			section = overlay
-	)
-	default boolean showOverlayNames()
-	{
-		return true;
-	}
-
-	@ConfigItem(
-			keyName = "showOverlayDeservedDamage",
+			keyName = "showPanelDeservedDamage",
 			name = "Show Deserved Damage",
-			description = "The overlay will display deserved damage.",
+			description = "The panel will display deserved damage.",
 			position = 20,
-			section = overlay
+			section = panel
 	)
-	default boolean showOverlayDeservedDamage()
+	default boolean showPanelDeservedDamage()
 	{
 		return true;
 	}
 
 	@ConfigItem(
-			keyName = "showOverlayDamageDealt",
+			keyName = "showPanelDamageDealt",
 			name = "Show Damage Dealt",
-			description = "The overlay will display damage dealt.",
+			description = "The panel will display damage dealt.",
 			position = 30,
-			section = overlay
+			section = panel
 	)
-	default boolean showOverlayDamageDealt()
+	default boolean showPanelDamageDealt()
 	{
 		return true;
 	}
@@ -104,15 +80,15 @@ public interface PvMTrackerConfig extends Config
 			description = "Starting from the first zero since last successfully hitting, " +
 					"<br>track the current streak of zeros hit.",
 			position = 40,
-			section = overlay
+			section = panel
 	)
 	default boolean trackCurrentZeros() { return true; }
 	@ConfigItem(
 			keyName = "showLongestZeroStreak",
 			name = "Show Longest Zero Streak",
-			description = "The overlay will display your longest streak of 0 hits.",
+			description = "The panel will display your longest streak of 0 hits.",
 			position = 50,
-			section = overlay
+			section = panel
 	)
 	default boolean showLongestZeroStreak()
 	{
@@ -125,7 +101,7 @@ public interface PvMTrackerConfig extends Config
 			description = "Starting from the first hit since the last zero, " +
 					"<br>track the current streak of successful hits.",
 			position = 60,
-			section = overlay
+			section = panel
 	)
 	default boolean trackCurrentHits()
 	{
@@ -134,9 +110,9 @@ public interface PvMTrackerConfig extends Config
 	@ConfigItem(
 			keyName = "showLongestHitStreak",
 			name = "Show Longest Hit Streak",
-			description = "The overlay will display your longest streak of successful hits.",
+			description = "The panel will display your longest streak of successful hits.",
 			position = 70,
-			section = overlay
+			section = panel
 	)
 	default boolean showLongestHitStreak() {return true;}
 	// ==== Levels Config ====
