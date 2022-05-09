@@ -39,7 +39,7 @@ public interface PvMTrackerConfig extends Config
 	}
 	@ConfigItem(
 			keyName = "showFightHistoryPanel",
-			name = "Show Fight History Panel",
+			name = "Enable Fight History Panel",
 			description = "Enables the side panel which displays previous fight statistics.",
 			position = -1
 	)
@@ -52,7 +52,7 @@ public interface PvMTrackerConfig extends Config
 
 	@ConfigItem(
 			keyName = "showOverlay",
-			name = "Show Overlay",
+			name = "Enable Overlay",
 			description = "Display your fight statistics during the fight on screen.",
 			position = 0,
 			section = overlay
@@ -64,7 +64,7 @@ public interface PvMTrackerConfig extends Config
 
 	@ConfigItem(
 			keyName = "showOverlayNames",
-			name = "Show Names in Overlay",
+			name = "Display Names",
 			description = "The overlay will display names.",
 			position = 10,
 			section = overlay
@@ -76,7 +76,7 @@ public interface PvMTrackerConfig extends Config
 
 	@ConfigItem(
 			keyName = "showOverlayDeservedDamage",
-			name = "Show Deserved Damage in Overlay",
+			name = "Show Deserved Damage",
 			description = "The overlay will display deserved damage.",
 			position = 20,
 			section = overlay
@@ -88,7 +88,7 @@ public interface PvMTrackerConfig extends Config
 
 	@ConfigItem(
 			keyName = "showOverlayDamageDealt",
-			name = "Show Damage Dealt in Overlay",
+			name = "Show Damage Dealt",
 			description = "The overlay will display damage dealt.",
 			position = 30,
 			section = overlay
