@@ -6,7 +6,7 @@ import net.runelite.client.config.*;
 public interface PvMTrackerConfig extends Config
 {
 	int MIN_LEVEL = 1;
-	int MAX__LEVEL = 120;
+	int MAX_LEVEL = 120;
 
 	// ==== Config Sections ====
 
@@ -14,7 +14,7 @@ public interface PvMTrackerConfig extends Config
 			name = "History Panel",
 			description = "Contains panel settings.",
 			position = 0,
-			closedByDefault = true
+			closedByDefault = false
 	)
 	String panel = "panel";
 
@@ -22,31 +22,9 @@ public interface PvMTrackerConfig extends Config
 			name = "Combat Stats",
 			description = "Contains combat stat settings.",
 			position = 50,
-			closedByDefault = true
+			closedByDefault = false
 	)
 	String cbtStats = "cbtStats";
-
-	// ==== General ====
-	@ConfigItem(
-		keyName = "pluginVersion",
-		name = "Plugin Version",
-		description = "Hidden plugin version",
-		hidden = true
-	)
-	default String pluginVersion()
-	{
-		return PvMTrackerPlugin.PLUGIN_VERSION;
-	}
-	@ConfigItem(
-			keyName = "showFightHistoryPanel",
-			name = "Enable Fight History Panel",
-			description = "Enables the side panel which displays previous fight statistics.",
-			position = -1
-	)
-	default boolean showFightHistoryPanel()
-	{
-		return true;
-	}
 
 	// ==== Panel Config ====
 
@@ -115,16 +93,17 @@ public interface PvMTrackerConfig extends Config
 			section = panel
 	)
 	default boolean showLongestHitStreak() {return true;}
+
 	// ==== Levels Config ====
 
 	@Range(
 			min = MIN_LEVEL,
-			max = MAX__LEVEL
+			max = MAX_LEVEL
 	)
 	@ConfigItem(
 			keyName = "attackLevel",
 			name = "Attack Level",
-			description = "Attack level used for deserved damage calculations.",
+			description = "Your Attack level.",
 			position = 60,
 			section = cbtStats
 	)
@@ -135,12 +114,12 @@ public interface PvMTrackerConfig extends Config
 
 	@Range(
 			min = MIN_LEVEL,
-			max = MAX__LEVEL
+			max = MAX_LEVEL
 	)
 	@ConfigItem(
 			keyName = "strengthLevel",
 			name = "Strength Level",
-			description = "Strength level used for deserved damage calculations.",
+			description = "Your Strength level.",
 			position = 70,
 			section = cbtStats
 	)
@@ -151,12 +130,12 @@ public interface PvMTrackerConfig extends Config
 
 	@Range(
 			min = MIN_LEVEL,
-			max = MAX__LEVEL
+			max = MAX_LEVEL
 	)
 	@ConfigItem(
 			keyName = "defenceLevel",
 			name = "Defence Level",
-			description = "Defence level used for deserved damage calculations.",
+			description = "Your Defence level.",
 			position = 80,
 			section = cbtStats
 	)
@@ -167,12 +146,12 @@ public interface PvMTrackerConfig extends Config
 
 	@Range(
 			min = MIN_LEVEL,
-			max = MAX__LEVEL
+			max = MAX_LEVEL
 	)
 	@ConfigItem(
 			keyName = "rangedLevel",
 			name = "Ranged Level",
-			description = "Ranged level used for deserved damage calculations.",
+			description = "Your Ranged level.",
 			position = 90,
 			section = cbtStats
 	)
@@ -183,12 +162,12 @@ public interface PvMTrackerConfig extends Config
 
 	@Range(
 			min = MIN_LEVEL,
-			max = MAX__LEVEL
+			max = MAX_LEVEL
 	)
 	@ConfigItem(
 			keyName = "magicLevel",
 			name = "Magic Level",
-			description = "Magic level used for deserved damage calculations.",
+			description = "Your Magic level.",
 			position = 100,
 			section = cbtStats
 	)
